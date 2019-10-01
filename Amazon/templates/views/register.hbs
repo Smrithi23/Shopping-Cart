@@ -1,0 +1,159 @@
+<html>
+
+<head>
+    <title>Amazon</title>
+    <link rel="icon" href="/uploads/amazonicon.jpg">
+    <meta charset="utf-8">
+</head>
+<style>
+    body {
+        position: relative;
+        margin: 0;
+        padding: 0;
+        background-color: #fff;
+        color: #232f3e;
+        font-family:Arial, Helvetica, sans-serif;
+        font-size: 20;
+    }
+
+    #Amazon {
+        position: absolute;
+        top: 20px;
+        width: 1853px;
+        text-align: center;
+    }
+
+
+    #form {
+        position: absolute;
+        top: 100px;
+        left: 750px;
+        height: 550px;
+        width: 340px;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+        padding: 20px;
+    }
+
+    #signUp {
+        position: absolute;
+        top: 20px;
+        font-size: 30px;
+    }
+
+
+    #register {
+        position: absolute;
+        top: 100px;
+    }
+
+    #signIn {
+        position: absolute;
+        top: 510px;
+        left: 25px;
+        background-color:#c7c4c4;
+    }
+
+    #haveAnAccount {
+        position: absolute;
+        top: 490px;
+        left:70px;
+        font-size: 18px;
+        color: #918f8f;
+    }
+
+    input[type=submit] {
+        position: absolute;
+        top: 270px;
+        border: none;
+        background-color: #ffae00;
+        color: #000000;
+        height: 50px;
+        width: 300px;
+        margin: 16px;
+        font-size: 20;
+        border-radius: 4px;
+    }
+
+    input[type=text] {
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        outline: 0;
+        background-color: transparent;
+        color: #000000;
+        font-size: 20;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        padding: 7px;
+        border-radius: 5px;
+    }
+
+    input[type=password] {
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        outline: 0;
+        background-color: transparent;
+        color: #000000;
+        font-size: 20;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        padding: 7px;
+        border-radius: 5px;
+    }
+
+    #loginerror {
+        position: absolute;
+        top: 800px;
+        width: 1853px;
+        text-align: center;
+        color: #232f3e;
+        ;
+        font-size: 20;
+    }
+
+    #error {
+        position: absolute;
+        top: 800px;
+        width: 1853px;
+        text-align: center;
+        color: #232f3e;
+        font-size: 20;
+    }
+</style>
+
+<body>
+    <div id="error">
+        {{message}}
+        {{register}}
+        {{email}}<br>
+        {{password}}
+    </div>
+    <div id="loginerror">
+        {{loginerror}}
+    </div>
+    <div id="Amazon">
+        <img src="/uploads/amazon-black.png" height="50px" width="135px">
+    </div>
+
+    <div id="form">
+        <div id="signUp">
+            Sign-Up
+        </div>
+        <form id="register" method="post" action="/register">
+            Email
+            <input type="text" name="email" required><br>
+            Name
+            <input type="text" name="name" required><br>
+            Password
+            <input type="password" name="password" required><br>
+            <input type="submit" value="Sign-Up">
+        </form>
+        <form method="get" action="/login">
+        <div id="haveAnAccount">
+            Already have an account?
+        </div>
+        <input id="signIn" type="submit" value="Sign-in">
+        </form>
+    </div>
+
+</body>
+
+</html>

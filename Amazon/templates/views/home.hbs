@@ -1,0 +1,311 @@
+<html>
+
+<head>
+    <title>Amazon</title>
+    <link rel="icon" href="/uploads/amazonicon.jpg">
+    <meta charset="utf-8">
+</head>
+<style>
+    body {
+        position: relative;
+        margin: 0;
+        padding: 0;
+        color: #232f3e;
+        background-color: #EAEDED;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 20;
+    }
+
+    #Amazon {
+        position: absolute;
+        width: 1828px;
+        height: 100px;
+        background-color: #232f3e;
+        padding-top: 3px;
+        padding-left: 25px;
+    }
+
+    #welcome {
+        position: absolute;
+        top: 15px;
+        right: 250px;
+        color: #ffffff;
+        font-size: 18;
+    }
+
+    #logout {
+        position: absolute;
+        top: 14px;
+        right: 20px;
+        background-color: transparent;
+        border: 0;
+        outline: 0;
+        color: #ffffff;
+        font-size: 18;
+    }
+
+    #myAccount {
+        position: absolute;
+        top: 14px;
+        right: 85px;
+        background-color: transparent;
+        border: 0;
+        outline: 0;
+        color: #ffffff;
+        font-size: 18;
+    }
+
+    #searchItem {
+        position: absolute;
+        top: 12px;
+        left: 180px;
+        border: 0;
+        outline: 0;
+        background-color: #ffffff;
+        height: 33px;
+        width: 1250px;
+        font-size: 20px;
+        padding: 5px;
+        border-radius: 5px;
+    }
+
+    #search {
+        position: absolute;
+        top: 12px;
+        left: 1397px;
+        border-left: 7px solid #ffa600;
+        border-top: 5px solid #ffa600;
+        border-bottom: 0;
+        border-right: 0;
+        outline: 0;
+        background-color: #ffa600;
+        background-image: url('../uploads/search.png');
+        background-size: 70%;
+        background-repeat: no-repeat;
+        height: 33px;
+        width: 40px;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+    }
+
+    #items {
+        position: absolute;
+        top: 300px;
+        left: 300px;
+    }
+
+    #orders {
+        position: absolute;
+        top: 60px;
+        left: 40px;
+        border: 0;
+        outline: 0;
+        background-color: transparent;
+        color: #ffffff;
+        font-size: 18px;
+        font-weight: bold;
+        border: 1px solid #ffffff;
+        padding: 5px;
+        border-radius: 2px;
+        width: 105px;
+    }
+
+    #cart {
+        position: absolute;
+        top: 60px;
+        right: 40px;
+        border: 0;
+        outline: 0;
+        background-color: transparent;
+        color: #ffffff;
+        font-size: 18px;
+        font-weight: bold;
+        border: 1px solid #ffffff;
+        padding: 5px;
+        border-radius: 2px;
+        width: 65px;
+    }
+
+    #badge {
+        position: absolute;
+        top:65px;
+        right: 110px;
+        background-color: #ffffff;
+        color:#232f3e;
+        height: 25px;
+        width: 25px;
+        border-radius: 15px;
+        text-align: center;
+    }
+
+    table {
+        position: absolute;
+        top: 140px;
+        left: 330px;
+        background-color: #ffffff;
+        padding: 10px;
+        font-size: 20px;
+    }
+
+    tr {
+        position: relative;
+        height: 270px;
+        width: 1000px;
+    }
+
+    .info {
+        width: 900px;
+        padding: 20px;
+    }
+
+    .row {
+        height: 3px;
+    }
+    
+    .line1 {
+        height: 2px;
+        background-color: #cacaca;
+    }
+
+    .line2 {
+        height: 2px;
+        background-color: #cacaca;
+    }
+
+    #buyNow {
+        position: absolute;
+        top: 110px;
+        right: 50px;
+        border: none;
+        background-color: #59b81a;
+        color: #000000;
+        height: 50px;
+        width: 150px;
+        margin: 16px;
+        font-size: 20;
+        border-radius: 4px;
+    }
+
+    #addToCart {
+        position: absolute;
+        top: 180px;
+        right: 50px;
+        border: none;
+        background-color: #ffae00;
+        color: #000000;
+        height: 50px;
+        width: 150px;
+        margin: 16px;
+        font-size: 20;
+        border-radius: 4px;
+    }
+
+    .title {
+        position: absolute;
+        top: 40px;
+        left: 250px;
+        font-size: 25px;
+    }
+
+    .description {
+        position: absolute;
+        top: 100px;
+        left: 250px;
+        font-size: 20px;
+    }
+
+    .price {
+        position: absolute;
+        top: 130px;
+        left: 250px;
+        font-size: 20px;
+    }
+
+    #message {
+        position: absolute;
+        top: 300px;
+        left: 850px;
+        font-size: 25px;
+        font-weight: bold;
+        color: #232f3e;
+    }
+
+    #outOfStock {
+        position: absolute;
+        top: 110px;
+        width: 1853px;
+        text-align: center;
+        font-size: 20px;
+        font-weight: bold;
+        color: #232f3e;
+    }
+</style>
+
+<body>
+    <div id="Amazon">
+
+        <img src="/uploads/amazon.png" height="65px" width="105px">
+
+        <form method="post" action="/search">
+            <input id="searchItem" type="text" placeholder="Search items" name="search">
+            <input id="search" type="submit" value="">
+        </form>
+
+
+        <form method="post" action="/users/logout">
+            <input id="logout" type="submit" value="Logout">
+        </form>
+
+        <form method="get" action="/users/me">
+            <input id="myAccount" type="submit" value="My Account  |">
+        </form>
+
+        <form method="get" action="/cart">
+            <input id="cart" type="submit" value="Cart">
+        </form>
+
+        <form method="get" action="/myOrders">
+            <input id="orders" type="submit" value="My Orders">
+        </form>
+        <div id="badge">{{user.cart.totalQty}}</div>
+    </div>
+    <div id="welcome">
+        Welcome {{user.name}}
+    </div>
+    <div id="message">
+        {{message}}
+    </div>
+    <div id="outOfStock">
+        {{outOfStock}}
+    </div>
+    <table>
+
+        {{#each items}}
+        <tr>
+            <td>
+                <img src="{{this.image}}" height="200px" width="200px">
+            </td>
+            <td class="info">
+                <div class="title">{{this.name}}</div>
+                <div class="description">{{this.description}}</div><br>
+                <div class="price">Rs {{this.price}}</div><br>
+                <form method="get" action="/addToCart/{{this._id}}">
+                    <input id="addToCart" type="submit" value="Add to cart">
+                </form>
+            </td>
+        </tr>
+        <tr class="row">
+            <td>
+                <div class="line1"></div>
+            </td>
+            <td>
+                <div class="line2"></div>
+            </td>
+        </tr>
+        {{/each}}
+
+    </table>
+
+</body>
+
+</html>

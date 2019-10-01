@@ -1,0 +1,129 @@
+<html>
+
+<head>
+    <title>Amazon</title>
+    <link rel="icon" href="/uploads/amazonicon.jpg">
+    <meta charset="utf-8">
+</head>
+<style>
+    body {
+        position: relative;
+        margin: 0;
+        padding: 0;
+        color: #232f3e;
+        background-color: #EAEDED;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 20;
+    }
+
+    #Amazon {
+        position: absolute;
+        width: 1828px;
+        height: 100px;
+        background-color: #232f3e;
+        padding-top: 3px;
+        padding-left: 25px;
+    }
+
+    #back {
+        position: absolute;
+        top: 20px;
+        right: 40px;
+        border: 0;
+        outline: 0;
+        background-color: transparent;
+        color: #ffffff;
+        font-size: 18px;
+        font-weight: bold;
+        border: 1px solid #ffffff;
+        padding: 5px;
+        border-radius: 2px;
+        width: 65px;
+    }
+
+    #form {
+        position: absolute;
+        top: 200px;
+        left: 750px;
+        height: 600px;
+        width: 340px;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+        padding: 20px;
+        background-color:rgb(241, 243, 243);
+    }
+
+
+    input[type=text] {
+        border: 1px solid rgba(0,0,0,0.2);
+        outline: 0;
+        background-color: transparent;
+        color: #000000;
+        font-size: 20;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        padding: 7px;
+        border-radius: 5px;
+    }
+
+    input[type=file] {
+        position: absolute;
+        top: 460px;
+        border: none;
+        color: #000000;
+        height: 50px;
+        width: 300px;
+        margin: 16px;
+        font-size: 18;
+        border-radius: 4px;
+    }
+
+    #update {
+        position: absolute;
+        top: 530px;
+        border: none;
+        background-color: #ffae00;
+        color: #000000;
+        height: 50px;
+        width: 300px;
+        margin: 16px;
+        font-size: 20;
+        border-radius: 4px;
+    }
+
+    #message {
+        position: absolute;
+        top: 150px;
+        left: 900px;
+    }
+
+</style>
+<body>
+    <div id="Amazon">
+         <img src="/uploads/amazon.png" height="65px" width="105px">
+         <form method="get" action="/admin">
+            <input id="back" type="submit" value="Back">
+        </form>
+    </div>
+    <div id="message">
+        {{message}}
+    </div>
+    <form id="form" method="post" action="/update/{{item._id}}" enctype="multipart/form-data">
+        Item:<br>
+        <input id="item" type="text" name="name" value="{{item.name}}" required><br>
+        Description:<br>
+        <input id="description" type="text" name="description" value="{{item.description}}" required><br>
+        Store:<br>
+        <input id="store" type="text" name="store" value="{{item.store}}" required><br>
+        Price:<br>
+        <input id="price" type="text" name="price" value="{{item.price}}" required><br>
+        Quantity Available:<br>
+        <input id="quantity" type="text" name="quantity" value="{{item.quantity}}" required><br>
+        Image:<br>
+        <input id="file" type="file" name="image">
+        <input id="update" type="submit" value="Update">
+    </form>
+
+</body>
+
+</html>

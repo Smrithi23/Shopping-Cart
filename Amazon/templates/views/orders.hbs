@@ -1,0 +1,149 @@
+<html>
+
+<head>
+    <title>Amazon</title>
+    <link rel="icon" href="/uploads/amazonicon.jpg">
+    <meta charset="utf-8">
+</head>
+<style>
+    body {
+        position: relative;
+        margin: 0;
+        padding: 0;
+        background-color: #EAEDED;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 20;
+    }
+
+    #Amazon {
+        position: absolute;
+        width: 1815px;
+        height: 100px;
+        background-color: #232f3e;
+        padding-top: 3px;
+        padding-left: 25px;
+    }
+
+    #back {
+        position: absolute;
+        top: 20px;
+        right: 40px;
+        border: 0;
+        outline: 0;
+        background-color: transparent;
+        color: #ffffff;
+        font-size: 18px;
+        font-weight: bold;
+        border: 1px solid #ffffff;
+        padding: 5px;
+        border-radius: 2px;
+        width: 65px;
+    }
+
+
+    #items {
+        position: absolute;
+        top: 250px;
+        left: 600px;
+    }
+
+    .product {
+        font-size: 25;
+        padding: 10px;
+        border: 1px solid #c9c9c9;
+        border-radius: 3px;
+        margin: 5px;
+        width: 500px;
+    }
+
+    hr {
+        position: absolute;
+        background-color: #ffffff;
+        color: #ffffff;
+        width: 850px;
+    }
+
+
+    #totalPrice {
+        font-size: 25px;
+        font-weight: bold;
+        padding: 20px;
+        margin-top: 20px;
+        color: #232f3e;
+    }
+
+    #noItems {
+        position: absolute;
+        left: 200px;
+        width: 400px;
+    }
+
+    #allOrders {
+        position: absolute;
+        top: 200px;
+        left: 480px;
+    }
+    .eachPurchase {
+        background-color: #ffffff;
+        border: 1px solid #b9b9b9;
+        padding: 20px;
+        border-radius: 5px;
+        margin: 10px;
+        margin-bottom: 40px;
+    }
+
+    .purchase {
+        position: relative;
+        background-color: #e6e4e4;
+        padding: 20px;
+        border: 0;
+        border-radius: 5px;
+        margin: 20px;
+        width: 800px;
+    }
+    #item {
+        position: absolute;
+        top: 20px;
+        left: 50px;
+    }
+    .qty {
+        position: absolute;
+        top: 20px;
+        right: 40px;
+    }
+</style>
+
+<body>
+    <div id="Amazon">
+        <img src="/uploads/amazon.png" height="65px" width="105px">
+        <form method="get" action="/user">
+            <input id="back" type="submit" value="Back">
+        </form>
+    </div>
+    <div id="allOrders">
+        {{#each orders}}
+        <div class="eachPurchase">
+            <hr><br>
+            <div>
+                {{this.date}}
+            </div>
+            <hr>
+                {{#each this.items}}
+                <div class="purchase">
+                    <div class="item">
+                        {{this.item.name}}
+                    </div>
+                    <div class="qty">
+                        {{this.qty}}
+                    </div>
+                </div>
+                {{/each}}
+        <div id="totalPrice">
+            Total Spent : {{this.cart.totalPrice}}<br>
+        </div>
+        <hr>
+        </div>
+        {{/each}}
+    </div>
+</body>
+</html>

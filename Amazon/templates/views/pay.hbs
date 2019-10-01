@@ -1,0 +1,146 @@
+<html>
+
+<head>
+    <title>Amazon</title>
+    <link rel="icon" href="/uploads/amazonicon.jpg">
+    <meta charset="utf-8">
+</head>
+<style>
+    body {
+        position: relative;
+        margin: 0;
+        padding: 0;
+        background-color: #EAEDED;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 20;
+    }
+
+    #Amazon {
+        position: absolute;
+        width: 1828px;
+        height: 100px;
+        background-color: #232f3e;
+        padding-top: 3px;
+        padding-left: 25px;
+    }
+
+    #back {
+        position: absolute;
+        top: 20px;
+        right: 40px;
+        border: 0;
+        outline: 0;
+        background-color: transparent;
+        color: #ffffff;
+        font-size: 18px;
+        font-weight: bold;
+        border: 1px solid #ffffff;
+        padding: 5px;
+        border-radius: 2px;
+        width: 65px;
+    }
+
+    #items {
+        position: absolute;
+        top: 250px;
+        left: 600px;
+    }
+
+    .product {
+        font-size: 25;
+        padding: 10px;
+        border: 1px solid #ffffff;
+        border-radius: 5px;
+        background-color: #ffffff;
+        margin: 5px;
+        width: 600px;
+    }
+
+    hr {
+        background-color: #ffffff;
+        color: #ffffff;
+    }
+
+    #buy {
+        position: absolute;
+        right: 490px;
+        border: none;
+        background-color: #4ebe03;
+        color: #ffffff;
+        height: 40px;
+        width: 120px;
+        margin: 16px;
+        font-size: 22;
+        font-weight: bold;
+        border-radius: 4px;
+    }
+
+    span {
+        padding: 20px;
+    }
+
+    .badge {
+        position: absolute;
+        left: 580px;
+        padding: 0px;
+    }
+
+    #totalPrice {
+        font-size: 25px;
+        font-weight: bold;
+        padding: 20px;
+        margin-top: 20px;
+    }
+
+    #address {
+        font-size: 25px;
+        font-weight: bold;
+        padding-bottom: 20px;
+        padding-left: 20px;
+        margin-top: 20px;
+    }
+
+    #noItems {
+        position: absolute;
+        left: 200px;
+        width: 400px;
+    }
+</style>
+
+<body>
+    <div id="Amazon">
+        <img src="/uploads/amazon.png" height="65px" width="105px">
+        <form method="get" action="/user">
+            <input id="back" type="submit" value="Back">
+        </form>
+    </div>
+    <div id="items">
+        {{#if products}}
+        <table>
+            {{#each products}}
+            <div class="product">
+                <span>{{this.item.name}}</span>
+                <span class="price">${{this.price}}</span>
+                <span class="badge">{{this.qty}}</span>
+            </div>
+            {{/each}}
+            <div id="totalPrice">Total: {{totalPrice}}</div>
+            <div id="address">Address: {{address}}</div>
+            <hr>
+        </table>
+        <form method="post" action="/charge">
+            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                data-key="pk_test_dfejky2klT3ArMceIKsDGOzs00SoI82duZ" data-amount='{{price}}' data-name="Cart"
+                data-description="Buy all items in cart" data-locale="gbp"></script>
+            <input type="hidden" name="chargeAmount" value='{{totalPrice}}'>
+        </form>
+        {{else}}
+        <div id="noItems">
+            <h2>No Items in Cart</h2>
+        </div>
+        {{/if}}
+    </div>
+
+</body>
+
+</html>

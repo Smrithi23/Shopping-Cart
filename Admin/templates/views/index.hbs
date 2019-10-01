@@ -1,0 +1,142 @@
+<html>
+
+<head>
+    <title>Amazon</title>
+    <link rel="icon" href="/uploads/amazonicon.jpg">
+    <meta charset="utf-8">
+</head>
+<style>
+    body {
+        position: relative;
+        margin: 0;
+        padding: 0;
+        background-color: #EAEDED;
+        color: #232f3e;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 20;
+    }
+
+    #background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 951px;
+        width: 1853px;
+    }
+
+    #canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 951px;
+        width: 1853px;
+        background-color: rgba(0, 0, 0, 0.55);
+    }
+
+
+    #form {
+        position: absolute;
+        top: 200px;
+        left: 750px;
+        height: 400px;
+        width: 340px;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+        padding: 20px;
+        background-color: #ffffff;
+    }
+
+    #signIn {
+        position: absolute;
+        top: 20px;
+        font-size: 30px;
+    }
+
+    #login {
+        position: absolute;
+        top: 100px;
+    }
+
+    input[type=submit] {
+        position: absolute;
+        top: 220px;
+        border: none;
+        background-color: #ffae00;
+        color: #000000;
+        height: 50px;
+        width: 300px;
+        margin: 16px;
+        font-size: 20;
+        border-radius: 4px;
+    }
+
+    input[type=text] {
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        outline: 0;
+        background-color: transparent;
+        color: #000000;
+        font-size: 20;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        padding: 7px;
+        border-radius: 5px;
+    }
+
+    input[type=password] {
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        outline: 0;
+        background-color: transparent;
+        color: #000000;
+        font-size: 20;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        padding: 7px;
+        border-radius: 5px;
+    }
+
+    #loginerror {
+        position: absolute;
+        top: 800px;
+        width: 1853px;
+        text-align: center;
+        color: #ffffff;
+        font-size: 20;
+    }
+
+    #error {
+        position: absolute;
+        top: 800px;
+        width: 1853px;
+        text-align: center;
+        color: #ffffff;
+        font-size: 20;
+    }
+</style>
+
+<body>
+    <img id="background" src="/uploads/adminBackground.jpg">
+    <canvas id="canvas"></canvas>
+    <div id="form">
+        <div id="signIn">
+            Sign-In
+        </div>
+        <form id="login" method="post" action="/login">
+            Email
+            <input type="text" name="email" required><br>
+            Password
+            <input type="password" name="password" required><br>
+            <input type="submit" value="Sign-In">
+        </form>
+    </div>
+    <div id="error">
+        {{message}}
+        {{register}}
+        {{email}}<br>
+        {{password}}
+    </div>
+    <div id="loginerror">
+        {{loginerror}}
+    </div>
+</body>
+
+</html>

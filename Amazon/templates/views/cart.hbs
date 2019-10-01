@@ -1,0 +1,176 @@
+<html>
+
+<head>
+    <title>Amazon</title>
+    <link rel="icon" href="/uploads/amazonicon.jpg">
+    <meta charset="utf-8">
+</head>
+<style>
+    body {
+        position: relative;
+        margin: 0;
+        padding: 0;
+        background-color: #EAEDED;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 20;
+    }
+
+    #Amazon {
+        position: absolute;
+        width: 1828px;
+        height: 100px;
+        background-color: #232f3e;
+        padding-top: 3px;
+        padding-left: 25px;
+    }
+
+    #back {
+        position: absolute;
+        top: 20px;
+        right: 40px;
+        border: 0;
+        outline: 0;
+        background-color: transparent;
+        color: #ffffff;
+        font-size: 18px;
+        font-weight: bold;
+        border: 1px solid #ffffff;
+        padding: 5px;
+        border-radius: 2px;
+        width: 65px;
+    }
+
+    #items {
+        position: absolute;
+        top: 250px;
+        left: 420px;
+    }
+
+    .product {
+        position: relative;
+        font-size: 25;
+        padding-top: 18px;
+        border: 1px solid #ffffff;
+        border-radius: 5px;
+        margin: 5px;
+        width: 1000px;
+        background-color: #ffffff;
+    }
+    hr {
+        background-color: #ffffff;
+        color: #ffffff;
+    }
+    #buy {
+        position: absolute;
+        left: 0px;
+        border: none;
+        background-color: #4ebe03;
+        color: #ffffff;
+        height: 40px;
+        width: 120px;
+        margin-top: 16px;
+        margin-left: 5px;
+        font-size: 22;
+        font-weight: bold;
+        border-radius: 4px;
+    }
+    span {
+        padding: 20px;
+    }
+    .badge {
+        position: absolute;
+        left: 580px;
+        padding: 0px;
+    }
+    #totalPrice {
+        font-size: 25px;
+        font-weight: bold;
+        padding: 20px;
+        margin-top: 20px;
+    }
+    #noItems {
+        position: absolute;
+        left: 400px;
+        width: 400px;
+    }
+    #message {
+        position: absolute;
+        top: 150px;
+        width: 1853px;
+        text-align: center;
+        font-size: 25px;
+        font-weight: bold;
+        color: #232f3e;
+    }
+    #remove {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        width: 110px;
+        height: 35px;
+        border: 0;
+        border-radius: 3px;
+        color: #ffffff;
+        background-color: #ffa600;
+        outline: 0;
+        font-size: 17px;
+        font-weight: bold;
+    }
+    #reduce {
+        position: absolute;
+        top: 20px;
+        right: 170px;
+        width: 110px;
+        height: 35px;
+        border: 0;
+        border-radius: 3px;
+        color: #ffffff;
+        background-color: #ffa600;
+        outline: 0;
+        font-size: 17px;
+        font-weight: bold;
+    }
+</style>
+
+<body>
+    <div id="Amazon">
+        <img src="/uploads/amazon.png" height="65px" width="105px">
+        <form method="get" action="/user">
+            <input id="back" type="submit" value="Back">
+        </form>
+    </div>
+    <div id="message">
+        {{message}}
+    </div>
+    <div id="items">
+        {{#if products}}
+        <table>
+            {{#each products}}
+            <div class="product">
+                <span>{{this.item.name}}</span>
+                <span class="price">${{this.price}}</span>
+                <span class="badge">{{this.qty}}</span>
+                <form method="get" action="/reduce/{{this.item._id}}">
+                    <input id="reduce" type="submit" value="Reduce by 1">
+                </form>
+                <form method="get" action="/remove/{{this.item._id}}">
+                    <input id="remove" type="submit" value="Remove">
+                </form>
+            </div>
+            {{/each}}
+            <div id="totalPrice">Total: {{totalPrice}}</div>
+            <hr>
+        </table>
+        <form method="get" action="/buy">
+            <input id="buy" type="submit" value="Buy">
+        </form>
+        {{else}}
+        <div id="noItems">
+            <h2>No Items in Cart</h2>
+        </div>
+        {{/if}}
+    </div>
+
+</body>
+
+</html>
