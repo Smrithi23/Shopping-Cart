@@ -1,1 +1,2 @@
 # Shopping-Cart
+This project comprises of two websites. One for the end user to make purchases online and the other for the admin to manage the products to be sold in the shopping cart. The end user can search for products, add them to the shopping cart, make the purchase as and when needed and also view the history of past purchases. The admin can add new items to the shopping cart, update existing items, change the quantity of the existing items, view the purchases made by various users etc.
